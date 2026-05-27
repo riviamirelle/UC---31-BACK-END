@@ -8,10 +8,10 @@ def login():
     return render_template('formulario.html')
 
 
-@app.route('/autenticar', methods=['GET'])
+@app.route('/autenticar', methods=['POST'])
 def autenticar():
-    usuario = request.args.get('usuario')
-    senha = request.args.get('senha')
+    usuario = request.form.get('usuario')
+    senha = request.form.get('senha')
     return "{} e {}".format(usuario, senha)
 
 
