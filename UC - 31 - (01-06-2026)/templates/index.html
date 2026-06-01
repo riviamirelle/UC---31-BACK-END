@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSCRIÇÃO</title>
+</head>
+<body>
+
+    <h1>Campeonato</h1>
+
+    <form action="/inscrever" method="post">
+
+        <label>Nickname:</label>
+        <input type="text" name="nickname">
+        <br><br>
+
+        <label>Jogo:</label>
+        <select name="jogo">
+            <option value="">Selecione</option>
+            <option value="Free Fire">Free Fire</option>
+            <option value="PK-XD">Valorant</option>
+            <option value="Minecraft">Minecraft</option>
+        </select>
+        <br><br>
+
+        <label>E-mail:</label>
+        <input type="email" name="email">
+        <br><br>
+
+        <button type="submit">Inscrever</button>
+
+        <p>{{mensagem}}</p>
+
+    </form>
+</body>
+</html>
