@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    width:700px;
+    background:white;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+h1{
+    color:#7A1F2B;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.sucesso{
+    background:#d4edda;
+    color:#155724;
+    border-left:8px solid #006847;
+    padding:18px;
+    border-radius:8px;
+    margin-bottom:20px;
+    font-weight:bold;
+}
+
+.erro{
+    background:#f8d7da;
+    color:#721c24;
+    border-left:8px solid #7A1F2B;
+    padding:18px;
+    border-radius:8px;
+    margin-bottom:20px;
+    font-weight:bold;
+}
+
+.info{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+    font-size:18px;
+}
+
+.info strong{
+    color:#006847;
+}
+
+.botao{
+    display:block;
+    width:100%;
+    text-align:center;
+    text-decoration:none;
+    margin-top:25px;
+    background:#006847;
+    color:white;
+    padding:14px;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.botao:hover{
+    background:#004f35;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+{% if sucesso %}
+
+<div class="sucesso">
+    Cadastro realizado com sucesso!
+</div>
+
+<div class="info"><strong>Nome:</strong> {{ nome }}</div>
+<div class="info"><strong>E-mail:</strong> {{ email }}</div>
+<div class="info"><strong>Telefone:</strong> {{ telefone }}</div>
+<div class="info"><strong>CPF:</strong> {{ cpf }}</div>
+<div class="info"><strong>Cidade:</strong> {{ cidade }}</div>
+<div class="info"><strong>Estado:</strong> {{ estado }}</div>
+<div class="info"><strong>Curso:</strong> {{ curso }}</div>
+<div class="info"><strong>Idade:</strong> {{ idade }}</div>
+
+{% else %}
+
+<div class="erro">
+    {{ mensagem }}
+</div>
+
+{% endif %}
+
+<a href="/" class="botao">
+    Fazer Novo Cadastro
+</a>
+
+</div>
+
+</body>
+</html>
