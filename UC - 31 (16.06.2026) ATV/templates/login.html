@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+</head>
+<body>
+ 
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <div class="card">
+
+        <h1>Login</h1>
+
+        {% if erro %}
+            <div class="erro">
+                {{ erro }}
+            </div>
+        {% endif %}
+
+        <form method="POST">
+
+            <label>Usuário</label>
+
+            <input
+                type="text"
+                name="usuario"
+                required
+            >
+
+            <label>Senha</label>
+
+            <input
+                type="password"
+                name="senha"
+                required
+            >
+
+            <button type="submit">
+                Entrar
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAGINA INICIAL</title>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <h1>Bem-vindo ao Sistema de Login</h1>
+
+        <p>
+            Esta aplicação demonstra o uso de Sessions no Flask.
+        </p>
+
+    
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+        <a href="{{ url_for('login') }}" class="botao">
+            Ir para Login
+        </a>
+
+    </div>
+
+</body>
+</html>
