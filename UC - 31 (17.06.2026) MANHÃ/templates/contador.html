@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTADOR DE ACESSO</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    
+    <div class="card">
+        <h1>Contador de Acessos</h1>
+
+        <p>
+            Você acessou esta página
+            <span class="contador">{{ contador }}</span>
+            vezes.
+        </p>
+
+        <form action="{{ url_for('zerar_contador') }}" method="post">
+            <button type="submit">Zerar</button>
+        </form>
+    </div>
+
+</body>
+</html>
