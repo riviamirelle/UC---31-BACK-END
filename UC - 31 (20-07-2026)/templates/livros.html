@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Livros</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#dbeafe;
+            padding:40px;
+        }
+
+        .container{
+            width:90%;
+            max-width:1100px;
+            margin:auto;
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,0.2);
+        }
+
+        h1{
+            text-align:center;
+            color:#0b5394;
+            margin-bottom:25px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:20px;
+        }
+
+        th{
+            background:#1565c0;
+            color:white;
+            padding:12px;
+        }
+
+        td{
+            border:1px solid #cfd8dc;
+            padding:10px;
+            text-align:center;
+        }
+
+        tr:nth-child(even){
+            background:#f4f9ff;
+        }
+
+        .editar{
+            background:#2196f3;
+            color:white;
+            text-decoration:none;
+            padding:8px 14px;
+            border-radius:5px;
+        }
+
+        .editar:hover{
+            background:#1565c0;
+        }
+
+        .excluir{
+            background:#e53935;
+            color:white;
+            text-decoration:none;
+            padding:8px 14px;
+            border-radius:5px;
+        }
+
+        .excluir:hover{
+            background:#c62828;
+        }
+
+        .menu{
+            text-align:center;
+            margin-top:30px;
+        }
+
+        .menu a{
+            text-decoration:none;
+            color:white;
+            background:#1565c0;
+            padding:10px 18px;
+            border-radius:5px;
+            margin:0 10px;
+        }
+
+        .menu a:hover{
+            background:#0d47a1;
+        }
+
+        .vazio{
+            text-align:center;
+            color:#0b5394;
+            font-size:20px;
+            margin-top:30px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Livros Cadastrados</h1>
+
+    {% if livros %}
+
+    <table>
+
+        <tr>
+
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Ano</th>
+            <th>Categoria</th>
+            <th>Quantidade</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+
+        </tr>
+
+        {% for livro in livros %}
+
+        <tr>
+
+            <td>{{ livro.titulo }}</td>
+            <td>{{ livro.autor }}</td>
+            <td>{{ livro.ano }}</td>
+            <td>{{ livro.categoria }}</td>
+            <td>{{ livro.quantidade }}</td>
+
+            <td>
+                <a class="editar"
+                href="{{ url_for('editar', indice=loop.index0) }}">
+                    Editar
+                </a>
+            </td>
+
+            <td>
+                <a class="excluir"
+                href="{{ url_for('excluir', indice=loop.index0) }}">
+                    Excluir
+                </a>
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    {% else %}
+
+        <p class="vazio">
+            Nenhum livro cadastrado.
+        </p>
+
+    {% endif %}
+
+    <div class="menu">
+
+        <a href="{{ url_for('cadastro') }}">
+            Novo Cadastro
+        </a>
+
+        <a href="{{ url_for('buscar') }}">
+            Buscar Livro
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
